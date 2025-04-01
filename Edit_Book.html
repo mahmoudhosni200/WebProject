@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="/css/edit.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Book</h2>
+        <form action="#" method="POST">
+            <label for="book_id">Book ID:</label>
+            <input type="text" id="book_id" name="book_id" required>
+            
+            <label for="book_name">Book Name:</label>
+            <input type="text" id="book_name" name="book_name" required>
+            
+            <label for="description">New Description:</label>
+            <textarea id="description" name="description"></textarea>
+            
+            <button type="submit">Update Book</button>
+            <button type="submit" formaction="#" class="delete-btn">Delete Book</button>
+        </form>
+    </div>
+</body>
+</html>
