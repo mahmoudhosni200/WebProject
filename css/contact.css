@@ -1,0 +1,72 @@
+
+/* Get in Touch Section */
+
+.contact {
+    width: 100%;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px; 
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-title {
+    font-size: 24px;
+    color: #003363;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.input-group textarea {
+    resize: vertical; 
+    min-height: 100px;
+}
+
+.contact-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #6dabe4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+    background-color: #4a8dc2;
+}
+
+
+

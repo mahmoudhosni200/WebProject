@@ -15,7 +15,16 @@ h1, h2{
 h2{
     font-size: 2em;
 }
-
+button{
+    color:white;
+    background-color:  #6dabe4;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border-color: transparent;
+}
+button:hover{
+    background-color: #4a8dc2;
+}
 .container{
     display:inline-block;
 }
