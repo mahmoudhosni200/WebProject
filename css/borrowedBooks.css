@@ -1,0 +1,38 @@
+
+.borrowed-books {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.nav-buttons a {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 0 10px;
+}
+
+.clr {
+    clear: both;
+}
