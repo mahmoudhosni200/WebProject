@@ -1,3 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 .container {
     width: 90%;
     margin : auto; 
@@ -34,7 +43,8 @@ nav.nav-home .nav-logo a{
 }
 nav.nav-home .nav-links{
     width: 50%;
-    height: 80px;
+    /* height: 80px; */
+    height: 10vh;
     float: left;
     text-align: right;
     padding-bottom: 0;
@@ -108,7 +118,7 @@ nav.nav-home .nav-links li a{
     background-color: #4a8dc2;   
 } 
 .home{
-    height: 695px;
+    height: 100vh;
     /* background-color: black; */
 }  
 .home .left-home{
@@ -209,4 +219,165 @@ nav.nav-home .nav-links li a{
 }
 .about-btn:hover{
     background-color: #4a8dc2;  
+}
+/* books */
+.books-title{
+    font-size: 35px;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* margin-top: 50px;
+    margin-left: 30px; */
+    text-align: center;
+}
+.books-txt{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 17px;
+    /* font-weight: bold; */
+}
+
+.book-list {
+    display: flex;
+    justify-content: space-around; /* or space-between / center */
+    flex-wrap: wrap; /* Makes it responsive */
+    /* gap: 20px;  */
+    padding: 20px;
+    margin-top: 50px;
+}
+.book-item {
+    /* background-color: #fff; Optional: for better visibility */
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    padding: 20px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+.book-item:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+.book-item {
+    width: 30%;
+    text-align: center;
+}
+
+.book-item img {
+    width: 70%;
+    /* height: auto; */
+    object-fit: cover;
+}
+
+.book-name{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    /* text-transform: uppercase; */
+}
+.books{
+    background-color: white;
+    /* width: 100%; */
+    height: 100%;
+    padding: 50px 0;
+    margin-bottom: 50px;
+}
+
+.books-btn {
+    padding: 12px 30px;
+    margin-top: 50px;
+    /* width: 10%; */
+    border-radius: 5px;
+    border-style : none;
+    background-color: #6dabe4;
+    color: white;
+    /* cursor: pointer; */
+    text-decoration: none;
+    text-align: center;
+    /* float: right; */
+    /* margin-left: 45%; */
+    position: relative;
+    left: 45%;
+}
+.books-btn:hover{
+    background-color: #4a8dc2;  
+}
+/* contact */
+
+/* Get in Touch Section */
+
+.contact {
+    width: 100%;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.container2 {
+    width: 100%;
+    max-width: 600px; 
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-title {
+    font-size: 24px;
+    color: #003363;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.input-group textarea {
+    resize: vertical; 
+    min-height: 100px;
+}
+
+.contact-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #6dabe4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+    background-color: #4a8dc2;
+}
+
+/* Footer */
+footer {
+    background-color: #003363;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    margin-top: 50px;
+    bottom: 0;
+    width: 100%;
 }
