@@ -1,6 +1,5 @@
-body{
-    background-color: rgb(248, 248, 248)
-    
+.list-of-book{
+    background-color: #3C2712;
 }
 .clr{
     clear: both;
@@ -9,30 +8,32 @@ h1{
     font-size: 3em;
 }
 h1, h2{
-    color:rgb(180, 149, 48);
+    color: #f2ebd8;
     text-align: center;  
 }
 h2{
     font-size: 2em;
 }
 button {
-    color:white;
-    background-color:  #6dabe4;
+    color:#f2ebd8;
+    background-color:  #3C2712;
     padding: 10px 20px;
     border-radius: 5px; 
     border-color: transparent;
-    
+    cursor: pointer;
 }
 button:hover{
-    background-color: #4a8dc2;
+    background-color: #6c4722;
+    transition: 0.5s;
 }
+
 a{
-    
     text-decoration: none;
     color: white;
 }
 .container{
     display:inline-block;
+    background-color: #f2ebd8;
 }
 .container img{
     width: 150px;
@@ -42,11 +43,12 @@ a{
 .img-item{
     width: 33%;
     float:left;
+    padding-left: 40px;
 }
 .item{
+    color:#3C2712;
     float: left;
     width:33%;
-    text-align: center;
 }
 .edit{
     float:left;
@@ -56,5 +58,6 @@ a{
 .Arabic-books .img-item, .Arabic-books .item{
     float:right;
     text-align: right;
+    padding-right: 40px;
 }
 

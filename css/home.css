@@ -8,134 +8,46 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 .container {
-    width: 90%;
+    width: 100%;
     margin : auto; 
     
-}
-/* Nav */
-nav.nav-home{
-    width: 100%;
-    height: 80px;  
-    /* background-color: #000000; */
-    text-transform: uppercase;
-    background-color: transparent;
-    /* position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000; */
-    position: absolute;
-}
-nav.nav-home .nav-logo{
-    width: 40%;
-    height: 80px;
-    float: left;
-    /* text-align: center; */
-    /* line-height: 80px; */
-
-}
-nav.nav-home .nav-logo a{
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: bold;
-    padding-left: 20px;
-    line-height: 80px;
-}
-nav.nav-home .nav-links{
-    width: 50%;
-    /* height: 80px; */
-    height: 10vh;
-    float: left;
-    text-align: right;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-nav.nav-home .nav-links li{
-    list-style: none;
-    /* float: left; */
-    text-align: right;
-    /* margin-right: 20px; */
-    display: inline-block;
-    margin-left:20px;
-}
-.contact-nav{
-    /* background-image: url('../images/hero-bg.jpg'); */
-    background-size: cover; /*CSS3*/
-    position: relative;
-    background-attachment: fixed;
-}
-nav.nav-home .nav-links li a{
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 17px;
-    padding: 0px 15px;
-    /* line-height: 80px; */
-    /* margin : 0px 10px; */
-    padding-top: 25px;
-
-    display: block;
-}
-.search{
-    padding-right: 22px;
-    width: 100%;
-    height: 20px;
-    cursor: pointer;
-    color:white;
-}
-.nav-links li> a:after{
-    content : '';
-    display: block;
-    width: 0;
-    height: 3px;
-    
-    background-color: white;
-}
-
-.nav-links li>a.active:after{
-    content : '';
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: white;
-}
-.nav-links li> a:hover:after{
-    width: 100%;
-    transition: width 0.5s;
-}
-.sign-in-btn{
-    padding: 12px 40px;
-    margin-top: 20px;
-
-    border-radius: 5px;
-    border-style : none;
-    background-color: #6dabe4;
-    color: white;
-    cursor: pointer;
-    /* transition: background-color 0.5s; */
-}
-
-.sign-in-btn:hover{
-    background-color: #4a8dc2;   
-} 
+}   
 .home{
     height: 100vh;
-    /* background-color: black; */
+    background-color: #f2ebd8;
+    max-width: 100%;
+    max-height: 100%;
 }  
 .home .left-home{
-    background-color: #003363;
-    width: 55%;
-    height: 100%;
+    margin-left: 60px;
+    background-color: #3C2712;
+    width: 50%;
+    height: 80vh;
     float: left;
+    margin-right: 0px;
 }
-.right-home{
-    background-color:#6dabe4;
-    width: 45%;
-    height: 100%;
+.home .right-home {
+   height: 80vh;
+    width: 42%;
     float: right;
+    margin-right: 60px;
+    margin-left: 0;
 }
+.home-img{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.home-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
 .homepg-title{
     color:white;
-    width: 40%;
+    width: 50%;
     margin:180px auto;
     font-size: 45px;
     /* text-align: center; */
@@ -143,37 +55,29 @@ nav.nav-home .nav-links li a{
     /* top: 150px; */
     text-transform: uppercase;
 }
-.home-img{
-    height: 100px;
-}
-.girl-img{
-    position: absolute;
-    top: 150px;
-    width: 30%;
-    right: 90px;
-}
+
 .home-btn{
-    padding: 20px 40px;
-    margin-top: 50px;
+    padding: 10px 20px;
     border-radius: 5px;
+    top: 500px;
     border-style : none;
-    background-color: #6dabe4;
-    color: white;
+    background-color: #f2ebd8;
+    color: #3C2712;
     cursor: pointer;
     text-decoration: none;
     position: absolute; 
-    bottom : 50px;
     left: 250px;
 }
 .home-btn:hover{
-    background-color: #4a8dc2;  
-    
+    background-color: #989487;
+    transition: 0.5s;
 }
+
 /* about */
 
 .about.first{
     height: 60%;
-    /* background-color: ; */
+    background-color: #f2ebd8;
     /* width: 100%; */
     height: 600px;
 }
@@ -208,20 +112,21 @@ nav.nav-home .nav-links li a{
     margin-top: 50px;
     border-radius: 5px;
     border-style : none;
-    background-color: #6dabe4;
+    background-color: #3C2712;
     color: white;
     cursor: pointer;
     text-decoration: none;
     position: absolute; 
-    /* bottom : 50px;
-    left: 250px; */
     margin-left: 30px;
 }
 .about-btn:hover{
-    background-color: #4a8dc2;  
+    background-color: #594e42; 
+    transition: 0.5s; 
 }
+
 /* books */
 .books-title{
+    color : #ffffff;
     font-size: 35px;
     font-weight: bold;
     text-transform: uppercase;
@@ -230,6 +135,7 @@ nav.nav-home .nav-links li a{
     text-align: center;
 }
 .books-txt{
+    color: #ffffff;
     margin-top: 15px;
     text-align: center;
     font-size: 17px;
@@ -237,6 +143,7 @@ nav.nav-home .nav-links li a{
 }
 
 .book-list {
+    color :#ffffff;
     display: flex;
     justify-content: space-around; /* or space-between / center */
     flex-wrap: wrap; /* Makes it responsive */
@@ -262,7 +169,6 @@ nav.nav-home .nav-links li a{
 
 .book-item img {
     width: 70%;
-    /* height: auto; */
     object-fit: cover;
 }
 
@@ -270,14 +176,13 @@ nav.nav-home .nav-links li a{
     font-size: 20px;
     font-weight: bold;
     margin-top: 10px;
-    /* text-transform: uppercase; */
 }
 .books{
-    background-color: white;
+    background-color: #3C2712;
     /* width: 100%; */
     height: 100%;
     padding: 50px 0;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 .books-btn {
@@ -286,8 +191,8 @@ nav.nav-home .nav-links li a{
     /* width: 10%; */
     border-radius: 5px;
     border-style : none;
-    background-color: #6dabe4;
-    color: white;
+    background-color: #f2ebd8;
+    color: #3C2712;
     /* cursor: pointer; */
     text-decoration: none;
     text-align: center;
@@ -297,15 +202,18 @@ nav.nav-home .nav-links li a{
     left: 45%;
 }
 .books-btn:hover{
-    background-color: #4a8dc2;  
+    background-color: #ebd6a2;  
+    transition: 0.5s;
 }
 /* contact */
 
 /* Get in Touch Section */
 
 .contact {
+    background-color: #f2ebd8;
     width: 100%;
-    padding-top: 50px;
+    max-height: 100%;
+    padding: 50px;
     display: flex;
     justify-content: center;
 }
@@ -314,17 +222,22 @@ nav.nav-home .nav-links li a{
     width: 100%;
     max-width: 600px; 
     background: #fff;
-    padding: 10px;
+    padding: 50px;
     border-radius: 10px; 
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .contact-title {
     font-size: 24px;
-    color: #003363;
+    color: #3C2712;
     margin-bottom: 20px;
     text-align: center;
     text-transform: uppercase;
+}
+
+.contact-text{
+    text-align: center;
+    color: #3C2712;
 }
 
 .input-group {
@@ -357,7 +270,7 @@ nav.nav-home .nav-links li a{
 .contact-btn {
     width: 100%;
     padding: 12px;
-    background-color: #6dabe4;
+    background-color: #3C2712;
     color: white;
     border: none;
     border-radius: 5px;
@@ -367,17 +280,17 @@ nav.nav-home .nav-links li a{
 }
 
 .contact-btn:hover {
-    background-color: #4a8dc2;
+    background-color: #694828;
 }
 
 /* Footer */
 footer {
-    background-color: #003363;
+    background-color: #3C2712;
     color: white;
     text-align: center;
     padding: 15px 0;
     position: relative;
-    margin-top: 50px;
+    margin-top: 0px;
     bottom: 0;
     width: 100%;
 }

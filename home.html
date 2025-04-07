@@ -14,36 +14,37 @@
 <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-    <div class="home">
+    <div class="home" id="home">
         <nav class="nav-home">
-        <div class="nav-logo">
-            <a href="home.html">Library</a> 
-        </div>
-        <ul class="nav-links">
-            <li><a href="#"class="active" >Home</a></li>
-            <li><a href="List-of-Books.html">Books</a></li>
-            <li><a href="contact.html">Contact us</a></li>
-            <li><a href="profileUser.html" >Profile</a></li>
-
-            <li><i class="fa fa-search search" aria-hidden="true"></i></li>
-            <li><button onclick="window.location.href='signIn.html'" class="sign-in-btn">Sign in</button></li>
-        </ul>
-    <div class="float-fix"></div>
-    </nav>
+            <div class="nav-logo">
+                <a href="home.html">Library</a> 
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home"class="active" >Home</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#contact">Contact us</a></li>
+                <li><a href="profileUser.html" >Profile</a></li>
+    
+                <li><i class="fa fa-search search" aria-hidden="true"></i></li>
+                <li><button onclick="window.location.href='signIn.html'" class="sign-in-btn">Sign in</button></li>
+            </ul>
+            <!-- <div class="float-fix"></div> -->
+        </nav>
         <div class="left-home" >
             <h1 class="homepg-title">
                 Discover and Borrow Books Online Here
             </h1>
-            <a href="#" class="home-btn">About Us</a>
+            <a href="#about" class="home-btn">About Us</a>
         </div>
         <div class="right-home">
             <div class="home-img">
-                <img class="girl-img" src="images/slider-img.png" alt="home">
+                <img class="" src="images/bookhome.jpg" alt="home">
             </div>
         </div>
-        <div class="float-fix"></div>
+        <!-- <div class="float-fix"></div> -->
     </div>
-    <div class="about first">
+    
+    <div class="about first" id="about">
         <div class="container">
             
             <img src="images/boy.png" alt="about" class="boy-img">
@@ -54,7 +55,8 @@
             </div>
         </div>
     </div>
-    <div class="books">
+
+    <div class="books" id="books">
         <div class="container">
             <h2 class="books-title">Books</h2>
             <p class="books-txt">Explore our collection of books and find your next read.</p>
@@ -83,10 +85,10 @@
         </div>
         <div class="float-fix"></div>
     </div>
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="container2">
             <h1 class="contact-title">Get in Touch</h1>
-            <p class="contact-text">Have any questions or feedback? Feel free to contact us using the form below.</p>
+            <p class="contact-text">Have any questions or feedback?<br> Feel free to contact us.</p>
             
             <form class="contact-form">
                 <div class="input-group">

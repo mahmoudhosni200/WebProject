@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: #f8f8f8;
+    background-color: #3C2712;
     font-family: Poppins;
 }
 input {
@@ -14,7 +14,7 @@ input {
 }
 
 .section{
-    background-color: white;
+    background-color: #f2ebd8;
     width: 60%;
     margin: 45px auto;
     border-radius: 20px;
@@ -27,6 +27,7 @@ input {
 }
 .title{
     font-size: 37px;
+    color: #3C2712;
 }
 .inner-section{
     padding: 30px 100px;
@@ -51,6 +52,8 @@ input {
 .inner-elem{
     border: none;
     margin-left:5px;
+    padding: 5px 0px;
+    background-color: #f2ebd8;
 }
 
 .select-btn{
@@ -129,12 +132,12 @@ input {
 } 
 /* Footer */
 footer {
-    background-color: #003363;
+    background-color: #3C2712;
     color: white;
     text-align: center;
     padding: 15px 0;
     position: relative;
-    margin-top: 50px;
+    margin-top: 0px;
     bottom: 0;
     width: 100%;
 }

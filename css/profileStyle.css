@@ -1,27 +1,25 @@
-.profile{
-    /* margin-top: 100px; */
-}
+ 
 .profile .right{
     width: 30%;
     height: 100%;
     float: left;
-    background-color:#6dabe4;
+    background-color:#f2ebd8;
 }
 .profile .right .profile-pic{
     width: 100%;
     height: 50%;
-    background-color: #6dabe4;
+    background-color: #f2ebd8;
     text-align: center;
     padding-top: 20px;
 }
 .profile .right .right-header{
     font-size: 25px;
-    color: white;
+    color: #3C2712;
     font-weight: bold;
     text-align: center;
 }
 .pen{
-    color: white;
+    color: #3C2712;
     /* left: 100px; */
     padding-left: 130px;
     cursor: pointer;
@@ -88,7 +86,7 @@
     padding-top: 80px;
     padding-left: 50px;
     font-size: 17px;
-    color: #6dabe4;
+    color: #3C2712;
     /* border-bottom:3px solid #e0e0e09c; */
 }
 .icon{
