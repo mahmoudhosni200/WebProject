@@ -19,7 +19,7 @@
 
 .contact-title {
     font-size: 24px;
-    color: #003363;
+    color: #333;
     margin-bottom: 20px;
     text-align: center;
     text-transform: uppercase;
@@ -55,7 +55,7 @@
 .contact-btn {
     width: 100%;
     padding: 12px;
-    background-color: #6dabe4;
+    background-color: #333;
     color: white;
     border: none;
     border-radius: 5px;
@@ -65,7 +65,7 @@
 }
 
 .contact-btn:hover {
-    background-color: #4a8dc2;
+    background-color: #333;
 }
 
 
