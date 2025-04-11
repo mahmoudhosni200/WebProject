@@ -6,21 +6,22 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #3C2712;
+    margin: 0;
+    padding: 0;
 }
 
+
 .container {
-    background-color: white;
+    background-color: #f2ebd8;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 600px;
+    margin: 50px auto; /* يخلّيها في النص وتحت النافبار */
 }
+
 
 h2 {
     text-align: center;
@@ -64,11 +65,11 @@ button {
 }
 
 button[type="submit"] {
-    background-color: #6dabe4;
+    background-color: #3C2712;
 }
 
 button[type="submit"]:hover {
-    background-color: #4a8dc2;
+    background-color: #6c4722;
 }
 
 button.delete-btn {
