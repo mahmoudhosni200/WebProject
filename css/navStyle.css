@@ -1,4 +1,8 @@
 /* Nav */
+html {
+    scroll-behavior: smooth;
+}
+
 nav{
     width: 100%;
     height: 80px;  
