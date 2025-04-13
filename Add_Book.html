@@ -40,9 +40,15 @@
             
             <label for="description">Description:</label>
             <textarea id="description" name="description" required></textarea>
-            
+            <label for="book_image">Book Photo:</label>
+            <div class="file-upload-wrapper">
+                <input type="file" id="book_image" name="book_image" accept="image/*" required>
+                <label for="book_image" class="custom-file-upload">Choose Image</label>
+                <span id="file-name">No file chosen</span>
+            </div>
             <button type="submit">Add Book</button>
         </form>
+
     </div>
     <footer class="footer">
         
