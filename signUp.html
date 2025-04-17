@@ -15,7 +15,7 @@
     <div class="section">
     <div class="inner-section">
         <h2 class="title">Sign up</h2>
-        <form class="sign-up">
+        <form class="sign-up" id="signUpForm">
             <div class="element"><label for="username" class="username t"><i class="fa fa-user" aria-hidden="true"></i></label>
                 <input type="text" class="username inner-elem" name="username" placeholder="Your name" required><br></div>
             
@@ -39,7 +39,7 @@
                 <input type="radio" name="choice" value="option2" class ="select-btn user" required> User
             </label>
             <br>
-            <button type="submit" class="register-btn">Register</button>
+            <button type="submit" class="register-btn" onclick="getSignUpFormData">Register</button>
             
         </form>
     </div>
@@ -49,5 +49,6 @@
     </div>
     <div class="float-fix"></div>
     </div>
+    <script src="js/signUp.js"></script>
 </body>
 </html>
