@@ -107,3 +107,58 @@ input[type="file"] {
     color: #3C2712;
     font-size: 14px;
 }
+
+
+.language-options {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.custom-radio {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #3C2712;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border: 2px solid #3C2712;
+    border-radius: 5px;
+}
+
+.custom-radio:hover input ~ .checkmark {
+    background-color: #ddd;
+}
+
+.custom-radio input:checked ~ .checkmark {
+    background-color: #3C2712;
+}
+
+.custom-radio input:checked ~ .checkmark:after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
