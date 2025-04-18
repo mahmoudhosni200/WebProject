@@ -6,7 +6,7 @@
 
 h1 {
     text-align: center;
-    color: #333;
+    color: white;
 }
 
 .container {
@@ -26,8 +26,8 @@ h1 {
 
 .nav-buttons a {
     padding: 10px 20px;
-    background-color: #333;
-    color: white;
+    background-color: #f2ebd8;
+    color: #3C2712;
     text-decoration: none;
     border-radius: 4px;
     margin: 0 10px;
