@@ -9,7 +9,8 @@
         <link rel="stylesheet" href="css/borrowedBooks.css">
         <link rel="stylesheet" href="css/navStyle.css">
         <link rel="stylesheet" href="css/style.css">
-         <link rel="stylesheet" href="css/ScrollBar.css">
+        <link rel="stylesheet" href="css/ScrollBar.css">
+        <link rel="stylesheet" href="css/List-of-Book.css">
     </head>
     <body>
         <nav>
@@ -17,28 +18,28 @@
                 <a href="home.html">Library</a> 
             </div>
             <ul class="nav-links">
-                <li><a href="home.html" >Home</a></li>
+                <li><a href="home.html">Home</a></li>
                 <li><a href="List-of-Books.html">Books</a></li>
                 <li><a href="contact.html">Contact us</a></li>
                 <li><a href="profileUser.html">Profile</a></li>
-    
                 <li><i class="fa fa-search search" aria-hidden="true"></i></li>
                 <li><button onclick="window.location.href='signIn.html'" class="sign-in-btn">Sign in</button></li>
             </ul>
-        <div class="float-fix"></div>
+            <div class="float-fix"></div>
         </nav>
+        
         <div class="borrowed-books">
-            <h1>Your Borrowed Books</h1>
-            
-            <div id="borrowed-books-container">
-                
-   
-            </div>
-            
-            <div class="nav-buttons">
-                <a href="List-of-Books.html">Back to Book List</a>
+            <div class="list-of-book">
+                <div class="english-books borrowed-books">
+                    <!-- Books will be inserted here by JavaScript -->
+                </div>
+                <div class="nav-buttons">
+                    <a href="List-of-Books.html" class="back-btn">Back to Book List</a>
+                </div>
             </div>
         </div>
+        
+        <script src="js/borrowedBooks.js"></script>
         
     </body>
 </html>
