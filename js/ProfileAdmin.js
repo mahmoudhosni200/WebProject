@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const infoSection = document.querySelector(".left");
         const penIcon = document.querySelector(".pen");
 
-        // عرض البيانات
+        
         if (nameElement) nameElement.textContent = user.username;
         if (emailElement) emailElement.textContent = user.email;
 
@@ -17,11 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
             infoSection.appendChild(roleParagraph);
         }
 
-        
+       
         penIcon.addEventListener("click", function () {
+           
+            const alreadyEditing = document.querySelector(".edit-input") || document.querySelector(".save-btn");
+            if (alreadyEditing) return;
+
             const rightDiv = document.querySelector(".right");
 
-            
             const nameInput = document.createElement("input");
             nameInput.type = "text";
             nameInput.value = user.username;
@@ -51,9 +54,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     return;
                 }
 
-                
+               
                 const storage = localStorage.getItem("user") ? localStorage : sessionStorage;
 
+               
                 const allUsers = JSON.parse(localStorage.getItem("users")) || [];
                 const updatedUsers = allUsers.map(u => {
                     if (u.username === user.username && u.email === user.email) {
@@ -62,14 +66,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     return u;
                 });
 
+                
                 localStorage.setItem("users", JSON.stringify(updatedUsers));
                 const updatedUser = { ...user, username: newName, password: newPass };
                 storage.setItem("user", JSON.stringify(updatedUser));
                 user = updatedUser;
 
-                
-                nameInput.replaceWith(nameElement);
+              
                 nameElement.textContent = newName;
+                nameInput.replaceWith(nameElement);
                 passInput.remove();
                 saveBtn.remove();
             });
@@ -79,4 +84,5 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "signIn.html";
     }
 });
+
 
