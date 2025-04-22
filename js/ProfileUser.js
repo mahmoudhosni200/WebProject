@@ -17,11 +17,13 @@ document.addEventListener("DOMContentLoaded", function () {
             infoSection.appendChild(roleParagraph);
         }
 
-        
         penIcon.addEventListener("click", function () {
+           
+            const alreadyEditing = document.querySelector(".edit-input") || document.querySelector(".save-btn");
+            if (alreadyEditing) return;
+
             const rightDiv = document.querySelector(".right");
 
-           
             const nameInput = document.createElement("input");
             nameInput.type = "text";
             nameInput.value = user.username;
@@ -36,12 +38,10 @@ document.addEventListener("DOMContentLoaded", function () {
             saveBtn.textContent = "Save Changes";
             saveBtn.classList.add("save-btn");
 
-            
             nameElement.replaceWith(nameInput);
             rightDiv.appendChild(passInput);
             rightDiv.appendChild(saveBtn);
 
-            
             saveBtn.addEventListener("click", function () {
                 const newName = nameInput.value.trim();
                 const newPass = passInput.value.trim();
@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     return;
                 }
 
-                
                 const storage = localStorage.getItem("user") ? localStorage : sessionStorage;
 
                 const allUsers = JSON.parse(localStorage.getItem("users")) || [];
@@ -67,9 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 storage.setItem("user", JSON.stringify(updatedUser));
                 user = updatedUser;
 
-                
-                nameInput.replaceWith(nameElement);
                 nameElement.textContent = newName;
+                nameInput.replaceWith(nameElement);
                 passInput.remove();
                 saveBtn.remove();
             });
@@ -79,4 +77,5 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "signIn.html";
     }
 });
+
 
