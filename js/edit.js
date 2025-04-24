@@ -32,7 +32,8 @@ window.onload = function () {
         }
     });
 
-    document.getElementById('deleteBookButton').addEventListener('click', function() {
+    document.getElementById('deleteBookButton').addEventListener('click', function(event) {
+        event.preventDefault();
         if (confirm("Are you sure you want to delete this book?")) {
             const bookId = document.getElementById('book_id').value;
             let books = JSON.parse(localStorage.getItem('books')) || [];
