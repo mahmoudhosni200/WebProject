@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (matchedUser.role === "admin") {
                     window.location.href = "homeAdmin.html";
                 } else {
-                    window.location.href = "home.html";
+                    window.location.href = "index.html";
                 }
             } else {
                 alert("Invalid username or password.");
