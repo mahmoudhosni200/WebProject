@@ -3,12 +3,6 @@ function displayBorrowedBooks() {
     const borrowedBooks = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
     const booksContainer = document.querySelector('.borrowed-books .english-books');
     
-    const loggedIn = localStorage.getItem('users');
-    if (!loggedIn || loggedIn !== 'true') {
-        alert("Please login first.");
-        window.location.href = 'signIn.html'; 
-        return;
-    }
     
     if (!booksContainer) return;
     
