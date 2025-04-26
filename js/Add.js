@@ -161,7 +161,7 @@ function setupButtonListeners(books) {
             });
         });
     } 
-        else {
+    else {
         document.querySelectorAll('.borrow-btn').forEach(button => {
             button.addEventListener('click', () => {
                 const bookId = button.getAttribute('data-book-id');

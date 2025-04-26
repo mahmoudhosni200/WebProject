@@ -12,9 +12,15 @@ document.addEventListener("DOMContentLoaded", function () {
         if (emailElement) emailElement.textContent = user.email;
 
         if (infoSection) {
+            const roleContainer = document.createElement("div");
+            roleContainer.style.marginTop = "30px"; 
+            roleContainer.style.marginLeft = "50px";
+            roleContainer.style.paddingTop = "20px";
             const roleParagraph = document.createElement("p");
             roleParagraph.textContent = `Role: ${user.role}`;
-            infoSection.appendChild(roleParagraph);
+            roleParagraph.style.margin = "0";
+            roleContainer.appendChild(roleParagraph);
+            infoSection.appendChild(roleContainer);
         }
 
         penIcon.addEventListener("click", function () {
