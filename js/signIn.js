@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (matchedUser) {
                 alert("Login successful!");
+                localStorage.setItem("userName", JSON.stringify(username));
 
                 
                 if (rememberMe) {

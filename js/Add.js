@@ -33,6 +33,63 @@ function handleAddBook() {
         const bookImageInput = document.getElementById('book_image');
         const bookImage = bookImageInput.files[0];
 
+        const compressImage = (file, maxSizeKB = 100, quality = 0.7) => {
+            return new Promise((resolve) => {
+                if (!file || file.size <= maxSizeKB * 1024) {
+                    resolve(file);
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        
+                        let width = img.width;
+                        let height = img.height;
+                        const maxDimension = 800;
+                        
+                        if (width > height && width > maxDimension) {
+                            height *= maxDimension / width;
+                            width = maxDimension;
+                        } else if (height > maxDimension) {
+                            width *= maxDimension / height;
+                            height = maxDimension;
+                        }
+                        
+                        canvas.width = width;
+                        canvas.height = height;
+                        ctx.drawImage(img, 0, 0, width, height);
+                        
+                        // Adjust quality until under max size
+                        let compressedFile;
+                        let currentQuality = quality;
+                        
+                        const attemptCompression = () => {
+                            canvas.toBlob((blob) => {
+                                if (blob.size <= maxSizeKB * 1024 || currentQuality <= 0.1) {
+                                    compressedFile = new File([blob], file.name, {
+                                        type: 'image/jpeg',
+                                        lastModified: Date.now()
+                                    });
+                                    resolve(compressedFile);
+                                } else {
+                                    currentQuality -= 0.1;
+                                    attemptCompression();
+                                }
+                            }, 'image/jpeg', currentQuality);
+                        };
+                        
+                        attemptCompression();
+                    };
+                    img.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        };
+
         const convertToBase64 = (file) => {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
@@ -63,16 +120,19 @@ function handleAddBook() {
         };
 
         if (bookImage) {
-            convertToBase64(bookImage)
+            compressImage(bookImage)
+                .then(compressedImage => convertToBase64(compressedImage))
                 .then(base64String => createBook(base64String))
                 .catch(error => {
-                    console.error('Error converting image to Base64:', error);
+                    console.error('Error processing image:', error);
                     createBook('images/default.jpg');
                 });
         } else {
             createBook('images/default.jpg');
         }
+        
     });
+
 
     const bookImageInput = document.getElementById('book_image');
     bookImageInput.addEventListener('change', () => {
@@ -124,8 +184,8 @@ function displayBooks() {
                 <p>${book.description}</p>
             </div>
             <div class="${isAdminPage ? 'edit' : 'book'}">
-                <h4>Available: ${book.available}</h4>
-                <h4>Borrowed: ${book.borrowed}</h4>
+                <h4 class="available">Available: ${book.available}</h4>
+                <h4 class="borrowed">Borrowed: ${book.borrowed}</h4>
                 <br>
                 ${isAdminPage 
                     ? `<button type="button" data-book-id="${book.id}" class="edit-btn">Edit</button>`
@@ -186,22 +246,9 @@ function setupButtonListeners(books) {
     }
 }
 
-function loadBooksFromJson() {
-    fetch('books.json')
-        .then(response => response.json())
-        .then(data => {
-            localStorage.setItem('books', JSON.stringify(data));
-            displayBooks();
-        })
-        .catch(error => {
-            console.error('Error loading books.json:', error);
-        });
-}
+
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (!localStorage.getItem('books')) {
-        loadBooksFromJson();
-    }
 
     if (window.location.pathname.includes('Add_Book.html')) {
         handleAddBook();

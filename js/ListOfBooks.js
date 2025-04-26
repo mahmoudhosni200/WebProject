@@ -28,8 +28,9 @@ function borrowBook(button) {
         availableElem.innerText = `Available: ${available}`;
         borrowedElem.innerText = `Borrowed: ${borrowed}`;
         
-        
+        let username = localStorage.getItem("userName")
         addToBorrowedBooks({
+            userName :username,
             title: bookTitle,
             author: bookAuthor,
             description: bookDescription,
@@ -51,30 +52,30 @@ function addToBorrowedBooks(book) {
 }
 
 function updateBookStorage(bookTitle, available, borrowed) {
-    let bookData = JSON.parse(localStorage.getItem('libraryBooks')) || {};
+    let bookData = JSON.parse(localStorage.getItem('books')) || {};
     bookData[bookTitle] = {
         available: available,
         borrowed: borrowed
     };
-    localStorage.setItem('libraryBooks', JSON.stringify(bookData));
+    localStorage.setItem('books', JSON.stringify(bookData));
 }
 
 
 function updateBookStorage(bookTitle, available, borrowed) {
     
-    let bookData = JSON.parse(localStorage.getItem('libraryBooks')) || {};
+    let bookData = JSON.parse(localStorage.getItem('books')) || {};
     
     bookData[bookTitle] = {
         available: available,
         borrowed: borrowed
     };
     
-    localStorage.setItem('libraryBooks', JSON.stringify(bookData));
+    localStorage.setItem('books', JSON.stringify(bookData));
 }
 
 
 function loadBookData() {
-    let bookData = JSON.parse(localStorage.getItem('libraryBooks')) || {};
+    let bookData = JSON.parse(localStorage.getItem('books')) || {};
     
     
     document.querySelectorAll('.container').forEach(container => {
@@ -93,17 +94,17 @@ function loadBookData() {
             const bookId = button.getAttribute('data-book-id');
             const books = JSON.parse(localStorage.getItem('books')) || [];
             const index = books.findIndex(b => b.id === bookId);
-            
             if (index !== -1 && books[index].available > 0) {
                 localStorage.setItem('books', JSON.stringify(books));
+                let username = localStorage.getItem("userName")
                 const borrowedBook = {
-                    id: Date.now(),
+                    userName : username,
+                    id : Date.now(),
                     bookId: bookId, 
                     title: books[index].title,
                     author: books[index].author,
                     description: books[index].description,
                     imageSrc: books[index].image,
-                    borrowDate: new Date().toISOString()
                 };
                 
                 let borrowedBooks = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
