@@ -1,25 +1,23 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const user = JSON.parse(localStorage.getItem("user"));
-    const authBtn = document.getElementById("auth-btn");
-    const userNameDisplay = document.getElementById("user-name");
+document.addEventListener('DOMContentLoaded', function() {
+    const user = JSON.parse(localStorage.getItem('user')) || JSON.parse(sessionStorage.getItem('user'));
+    const userNameSpan = document.getElementById('user-name');
+    const authBtn = document.getElementById('auth-btn');
 
-    if (user && authBtn) {
-        
-        authBtn.textContent = "Log out";
-        authBtn.addEventListener("click", function () {
-            localStorage.removeItem("user");
-            window.location.href = "signIn.html";
+    if (user) {
+        userNameSpan.textContent = user.username;
+        authBtn.textContent = 'Logout';
+        authBtn.classList.remove('sign-in-btn');
+        authBtn.classList.add('logout-btn');
+
+        authBtn.addEventListener('click', function() {
+            localStorage.removeItem('user');
+            sessionStorage.removeItem('user');
+            
+            window.location.href = 'index.html';
         });
-
-        
-        if (userNameDisplay) {
-            userNameDisplay.textContent = user.username;
-        }
-    } else if (authBtn) {
-        
-        authBtn.textContent = "Sign in";
-        authBtn.addEventListener("click", function () {
-            window.location.href = "signIn.html";
+    } else {
+        authBtn.addEventListener('click', function() {
+            window.location.href = 'signIn.html';
         });
     }
 });

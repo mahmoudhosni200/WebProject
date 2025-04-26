@@ -1,5 +1,11 @@
 function borrowBook(button) {
-
+    let user = JSON.parse(localStorage.getItem("user")) || JSON.parse(sessionStorage.getItem("user"));
+    
+    if (!user) {
+        alert("Please sign in first to borrow books.");
+        window.location.href = "signIn.html";
+        return; 
+    }
     let bookContainer = button.closest(".book");
     let container = bookContainer.closest(".container");
 

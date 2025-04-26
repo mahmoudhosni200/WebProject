@@ -35,14 +35,11 @@ nav .nav-links{
 }
 nav .nav-links li{
     list-style: none;
-    /* float: left; */
     text-align: right;
-    /* margin-right: 20px; */
     display: inline-block;
     margin-left:20px;
 }
 .contact-nav{
-    /* background-image: url('../images/hero-bg.jpg'); */
     background-size: cover; /*CSS3*/
     position: relative;
     background-attachment: fixed;
@@ -52,8 +49,6 @@ nav .nav-links li a{
     text-decoration: none;
     font-size: 17px;
     padding: 0px 15px;
-    /* line-height: 80px; */
-    /* margin : 0px 10px; */
     padding-top: 25px;
 
     display: block;
@@ -93,10 +88,24 @@ nav .nav-links li a{
     background-color: #3C2712;
     color: white;
     cursor: pointer;
-    /* transition: background-color 0.5s; */
 }
 
 .sign-in-btn:hover{
     background-color: #8b7069;   
     transition: 0.5s;
 }   
+
+/* Logout */
+.logout-btn {
+    background-color: #3C2712;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #cc0000;
+}

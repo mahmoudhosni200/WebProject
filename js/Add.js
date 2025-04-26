@@ -164,6 +164,13 @@ function setupButtonListeners(books) {
     else {
         document.querySelectorAll('.borrow-btn').forEach(button => {
             button.addEventListener('click', () => {
+                let user = JSON.parse(localStorage.getItem("user")) || JSON.parse(sessionStorage.getItem("user"));
+    
+            if (!user) {
+                alert("Please sign in first to borrow books.");
+                window.location.href = "signIn.html";
+                return; 
+            }
                 const bookId = button.getAttribute('data-book-id');
                 const index = books.findIndex(b => b.id === bookId);
                 if (index !== -1 && books[index].available > 0) {
