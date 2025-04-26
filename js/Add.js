@@ -63,7 +63,6 @@ function handleAddBook() {
                         canvas.height = height;
                         ctx.drawImage(img, 0, 0, width, height);
                         
-                        // Adjust quality until under max size
                         let compressedFile;
                         let currentQuality = quality;
                         
@@ -225,18 +224,32 @@ function setupButtonListeners(books) {
         document.querySelectorAll('.borrow-btn').forEach(button => {
             button.addEventListener('click', () => {
                 let user = JSON.parse(localStorage.getItem("user")) || JSON.parse(sessionStorage.getItem("user"));
-    
-            if (!user) {
-                alert("Please sign in first to borrow books.");
-                window.location.href = "signIn.html";
-                return; 
-            }
+        
+                if (!user) {
+                    alert("Please sign in first to borrow books.");
+                    window.location.href = "signIn.html";
+                    return; 
+                }
                 const bookId = button.getAttribute('data-book-id');
                 const index = books.findIndex(b => b.id === bookId);
                 if (index !== -1 && books[index].available > 0) {
                     books[index].available -= 1;
                     books[index].borrowed += 1;
                     localStorage.setItem('books', JSON.stringify(books));
+        
+                    const borrowedBooks = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
+                    const borrowedBook = {
+                        userName: localStorage.getItem('userName'),
+                        id: Date.now(),
+                        bookId: books[index].id,
+                        title: books[index].title,
+                        author: books[index].author,
+                        description: books[index].description,
+                        imageSrc: books[index].image,
+                    };
+        
+                    borrowedBooks.push(borrowedBook);
+                    localStorage.setItem('borrowedBooks', JSON.stringify(borrowedBooks));        
                     displayBooks();
                 } else {
                     alert('No copies available to borrow!');

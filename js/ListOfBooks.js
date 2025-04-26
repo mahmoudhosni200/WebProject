@@ -63,19 +63,19 @@ function updateBookStorage(bookTitle, available, borrowed) {
 
 function updateBookStorage(bookTitle, available, borrowed) {
     
-    let bookData = JSON.parse(localStorage.getItem('books')) || {};
+    let bookData = JSON.parse(localStorage.getItem('libraryBooks')) || {};
     
     bookData[bookTitle] = {
         available: available,
         borrowed: borrowed
     };
     
-    localStorage.setItem('books', JSON.stringify(bookData));
+    localStorage.setItem('libraryBooks', JSON.stringify(bookData));
 }
 
 
 function loadBookData() {
-    let bookData = JSON.parse(localStorage.getItem('books')) || {};
+    let bookData = JSON.parse(localStorage.getItem('libraryBooks')) || {};
     
     
     document.querySelectorAll('.container').forEach(container => {
@@ -88,34 +88,6 @@ function loadBookData() {
             availableElem.innerText = `Available: ${bookData[bookTitle].available}`;
             borrowedElem.innerText = `Borrowed: ${bookData[bookTitle].borrowed}`;
         }
-    });
-    document.querySelectorAll('.borrow-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const bookId = button.getAttribute('data-book-id');
-            const books = JSON.parse(localStorage.getItem('books')) || [];
-            const index = books.findIndex(b => b.id === bookId);
-            if (index !== -1 && books[index].available > 0) {
-                localStorage.setItem('books', JSON.stringify(books));
-                let username = localStorage.getItem("userName")
-                const borrowedBook = {
-                    userName : username,
-                    id : Date.now(),
-                    bookId: bookId, 
-                    title: books[index].title,
-                    author: books[index].author,
-                    description: books[index].description,
-                    imageSrc: books[index].image,
-                };
-                
-                let borrowedBooks = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
-                borrowedBooks.push(borrowedBook);
-                localStorage.setItem('borrowedBooks', JSON.stringify(borrowedBooks));
-                
-                displayBooks(); 
-            } else {
-                alert('No copies available to borrow!');
-            }
-        });
     });
 }
 
