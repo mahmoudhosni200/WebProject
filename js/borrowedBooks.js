@@ -1,7 +1,9 @@
+
 function displayBorrowedBooks() {
     const borrowedBooks = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
     const booksContainer = document.querySelector('.borrowed-books .english-books');
     
+    if (!booksContainer) return;
     
     booksContainer.innerHTML = '<h2>Your Borrowed Books</h2><hr>';
 
@@ -15,7 +17,7 @@ function displayBorrowedBooks() {
         bookElement.className = 'container';
         bookElement.innerHTML = `
             <div class="img-item">
-                <img src="${book.imageSrc}" alt="${book.title}">
+                <img src="${book.imageSrc || 'images/default.jpg'}" alt="${book.title}">
             </div>
             <div class="item">
                 <h3>${book.title}</h3>
@@ -31,7 +33,6 @@ function displayBorrowedBooks() {
         booksContainer.appendChild(bookElement);
     });
 }
-
 function returnBook(bookId) {
     let borrowedBooks = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
     let returnedBook = borrowedBooks.find(book => book.id === bookId);

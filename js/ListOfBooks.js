@@ -82,6 +82,34 @@ function loadBookData() {
             borrowedElem.innerText = `Borrowed: ${bookData[bookTitle].borrowed}`;
         }
     });
+    document.querySelectorAll('.borrow-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const bookId = button.getAttribute('data-book-id');
+            const books = JSON.parse(localStorage.getItem('books')) || [];
+            const index = books.findIndex(b => b.id === bookId);
+            
+            if (index !== -1 && books[index].available > 0) {
+                localStorage.setItem('books', JSON.stringify(books));
+                const borrowedBook = {
+                    id: Date.now(),
+                    bookId: bookId, 
+                    title: books[index].title,
+                    author: books[index].author,
+                    description: books[index].description,
+                    imageSrc: books[index].image,
+                    borrowDate: new Date().toISOString()
+                };
+                
+                let borrowedBooks = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
+                borrowedBooks.push(borrowedBook);
+                localStorage.setItem('borrowedBooks', JSON.stringify(borrowedBooks));
+                
+                displayBooks(); 
+            } else {
+                alert('No copies available to borrow!');
+            }
+        });
+    });
 }
 
 window.addEventListener('DOMContentLoaded', loadBookData);
