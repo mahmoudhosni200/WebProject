@@ -2,57 +2,75 @@
 function displayBorrowedBooks() {
     const borrowedBooks = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
     const booksContainer = document.querySelector('.borrowed-books .english-books');
-    
+    const currentUser = localStorage.getItem("userName");
     
     if (!booksContainer) return;
     
     booksContainer.innerHTML = '<h2>Your Borrowed Books</h2><hr>';
 
-    if (borrowedBooks.length === 0) {
+    const userBooks = borrowedBooks.filter(book => book.userName === currentUser);
+
+    if (userBooks.length === 0) {
         booksContainer.innerHTML += '<p>You have no borrowed books.</p>';
         return;
     }
 
-    borrowedBooks.forEach(book => {
+    const fragment = document.createDocumentFragment();
+
+    userBooks.forEach(book => {
         const bookElement = document.createElement('div');
         bookElement.className = 'container';
+        
         bookElement.innerHTML = `
             <div class="img-item">
-                <img src="${book.imageSrc || 'images/default.jpg'}" alt="${book.title}">
+                <img src="${escapeHtml(book.imageSrc) || 'images/default.jpg'}" alt="${escapeHtml(book.title)}">
             </div>
             <div class="item">
-                <h3>${book.title}</h3>
-                <h4>${book.author}</h4>
-                <p>${book.description}</p>
+                <h3>${escapeHtml(book.title)}</h3>
+                <h4>${escapeHtml(book.author)}</h4>
+                <p>${escapeHtml(book.description)}</p>
             </div>
             <div class="book">
-                <button type="button" onclick="returnBook(${book.id})" class="return-btn">Return Book</button>
+                <button type="button" onclick="returnBook('${escapeHtml(book.bookId)}')" class="return-btn">Return Book</button>
             </div>
             <div class="clr"></div>
             <hr>
         `;
-        booksContainer.appendChild(bookElement);
+        fragment.appendChild(bookElement);
     });
+
+    booksContainer.appendChild(fragment);
+}
+
+function escapeHtml(unsafe) {
+    if (!unsafe) return '';
+    return unsafe.toString()
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 }
 function returnBook(bookId) {
     let borrowedBooks = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
-    let returnedBook = borrowedBooks.find(book => book.id === bookId);
+    let books = JSON.parse(localStorage.getItem('books')) || []; 
     
-    if (returnedBook) {
+    const returnedBookIndex = borrowedBooks.findIndex(book => book.bookId === bookId);
+    
+    if (returnedBookIndex !== -1) {
+        const returnedBook = borrowedBooks[returnedBookIndex];
         
-        let bookData = JSON.parse(localStorage.getItem('libraryBooks')) || {};
-        if (bookData[returnedBook.title]) {
-            bookData[returnedBook.title].available++;
-            bookData[returnedBook.title].borrowed--;
-            localStorage.setItem('libraryBooks', JSON.stringify(bookData));
+        const bookIndex = books.findIndex(b => b.id === returnedBook.bookId);
+        if (bookIndex !== -1) {
+            books[bookIndex].available++;
+            books[bookIndex].borrowed--;
+            localStorage.setItem('books', JSON.stringify(books));
         }
 
-        
-        borrowedBooks = borrowedBooks.filter(book => book.id !== bookId);
+        borrowedBooks.splice(returnedBookIndex, 1);
         localStorage.setItem('borrowedBooks', JSON.stringify(borrowedBooks));
 
         displayBorrowedBooks();
-    
     }
 }
 

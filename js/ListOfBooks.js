@@ -61,21 +61,9 @@ function updateBookStorage(bookTitle, available, borrowed) {
 }
 
 
-function updateBookStorage(bookTitle, available, borrowed) {
-    
-    let bookData = JSON.parse(localStorage.getItem('libraryBooks')) || {};
-    
-    bookData[bookTitle] = {
-        available: available,
-        borrowed: borrowed
-    };
-    
-    localStorage.setItem('libraryBooks', JSON.stringify(bookData));
-}
-
 
 function loadBookData() {
-    let bookData = JSON.parse(localStorage.getItem('libraryBooks')) || {};
+    let bookData = JSON.parse(localStorage.getItem('books')) || {};
     
     
     document.querySelectorAll('.container').forEach(container => {
