@@ -13,23 +13,46 @@
     
 </head>
 <body>
-    <nav>
+    <nav class="nav-large">
         <div class="nav-logo">
-            <a href="homeAdmin.html">Library</a> 
+            <a href="homeAdmin.html">Library</a>
         </div>
         <ul class="nav-links">
-            <li><a href="homeAdmin.html" >Home</a></li>
-            <li><a href="List-of-Books-Admin.html" class="active">Books</a></li>
-            <li><a href="Add_Book.html">Add</a></li>
+            <li><a href="homeAdmin.html">Home</a></li>
+            <li><a href="List-of-Books-Admin.html">Books</a></li>
+            <li><a href="Add_Book.html">ADD</a></li>
             <li><a href="profileAdmin.html">Profile</a></li>
-            
             <li><i class="fa fa-search search" aria-hidden="true"></i></li>
             <li>
-                <span id="user-name" style="margin-right: 10px; font-weight: bold;"></span>
-                <button id="auth-btn" class="sign-in-btn">Sign in</button>
+                <span id="user-name-large" style="margin-right: 10px; font-weight: bold;"></span>
+                <button id="auth-btn-large" class="sign-in-btn">Sign in</button>
             </li>
         </ul>
-    <div class="float-fix"></div>
+    </nav>
+
+    <nav class="nav-small">
+        <div class="nav-logo">
+            <a href="homeAdmin.html">Library</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="side-menu" id="sideMenu">
+            <button class="close-menu" id="closeMenu">
+                <i class="fa fa-times"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="homeAdmin.html" class="active">Home</a></li>
+                <li><a href="List-of-Books-Admin.html">Books</a></li>
+                <li><a href="Add_Book.html">ADD</a></li>
+                <li><a href="profileAdmin.html">Profile</a></li>
+                <li><i class="fa fa-search search" aria-hidden="true"></i></li>
+                <li>
+                    <span id="user-name-small" style="margin-right: 10px; font-weight: bold;"></span>
+                    <button id="auth-btn-small" class="sign-in-btn">Sign in</button>
+                </li>
+            </ul>
+        </div>
     </nav>
     <div class="container">
         <h2>Edit Book</h2>
