@@ -1,45 +1,38 @@
 function borrowBook(button) {
     let user = JSON.parse(localStorage.getItem("user")) || JSON.parse(sessionStorage.getItem("user"));
-    
     if (!user) {
         alert("Please sign in first to borrow books.");
         window.location.href = "signIn.html";
-        return; 
+        return;
     }
+
     let bookContainer = button.closest(".book");
     let container = bookContainer.closest(".container");
-
-    
-    let availableElem = bookContainer.querySelector(".available");
-    let borrowedElem = bookContainer.querySelector(".borrowed");
-
-    
+    let bookId = container.querySelector('p')?.getAttribute('data-book-id');
     let bookTitle = container.querySelector("h3").innerText;
-    let bookAuthor = container.querySelector("h4").innerText.replace("Author: ", "").replace("تأليف: ", "").replace("المؤلف: ", "");
+    let bookAuthor = containerPlants.querySelector("h4").innerText.replace("Author: ", "").replace("تأليف: ", "").replace("المؤلف: ", "");
     let bookDescription = container.querySelector("p").innerText;
     let bookImage = container.querySelector("img").src;
 
-    let available = parseInt(availableElem.innerText.match(/\d+/)[0]);
-    let borrowed = parseInt(borrowedElem.innerText.match(/\d+/)[0]);
+    let books = JSON.parse(localStorage.getItem('books')) || [];
+    let bookIndex = books.findIndex(b => b.id === bookId);
+    if (bookIndex !== -1 && books[bookIndex].available > 0) {
+        books[bookIndex].available--;
+        books[bookIndex].borrowed++;
+        localStorage.setItem('books', JSON.stringify(books));
 
-    if (available > 0) {
-        available--;
-        borrowed++;
-        availableElem.innerText = `Available: ${available}`;
-        borrowedElem.innerText = `Borrowed: ${borrowed}`;
-        
-        let username = localStorage.getItem("userName")
+        let username = localStorage.getItem("userName");
         addToBorrowedBooks({
-            userName :username,
+            userName: username,
+            bookId: bookId,
             title: bookTitle,
             author: bookAuthor,
             description: bookDescription,
             imageSrc: bookImage,
-            id: Date.now() 
+            id: Date.now()
         });
 
-        
-        updateBookStorage(bookTitle, available, borrowed);
+        displayBooks();
     } else {
         alert("No books available to borrow.");
     }
@@ -50,33 +43,3 @@ function addToBorrowedBooks(book) {
     borrowedBooks.push(book);
     localStorage.setItem('borrowedBooks', JSON.stringify(borrowedBooks));
 }
-
-function updateBookStorage(bookTitle, available, borrowed) {
-    let bookData = JSON.parse(localStorage.getItem('books')) || {};
-    bookData[bookTitle] = {
-        available: available,
-        borrowed: borrowed
-    };
-    localStorage.setItem('books', JSON.stringify(bookData));
-}
-
-
-
-function loadBookData() {
-    let bookData = JSON.parse(localStorage.getItem('books')) || {};
-    
-    
-    document.querySelectorAll('.container').forEach(container => {
-        let bookTitle = container.querySelector('h3').innerText;
-        let availableElem = container.querySelector('.available');
-        let borrowedElem = container.querySelector('.borrowed');
-        
-        
-        if (bookData[bookTitle]) {
-            availableElem.innerText = `Available: ${bookData[bookTitle].available}`;
-            borrowedElem.innerText = `Borrowed: ${bookData[bookTitle].borrowed}`;
-        }
-    });
-}
-
-window.addEventListener('DOMContentLoaded', loadBookData);

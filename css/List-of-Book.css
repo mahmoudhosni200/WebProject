@@ -34,6 +34,7 @@ button:hover{
 .container{
     display:inline-block;
     background-color: #f2ebd8;
+    width: 100%;
 }
 .container img{
     width: 150px;

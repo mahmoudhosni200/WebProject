@@ -95,3 +95,54 @@
     margin-right: 10px;
     cursor: pointer;
 }
+@media (max-width: 992px) {
+    .profile .right, 
+    .profile .left {
+        width: 100%;
+        float: none;
+    }
+    
+    .profile .right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profile-pic {
+        max-width: 300px;
+    }
+    
+    .pen {
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    .info, .email, .mail, .bo, .perso {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .line {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .perso {
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile .right .right-header {
+        font-size: 20px;
+    }
+    
+    .info, .email, .mail, .bo, .perso {
+        font-size: 15px;
+    }
+    
+    .profile-pic {
+        max-width: 200px;
+    }
+}
