@@ -58,9 +58,9 @@ This repository contains the frontend codebase for a comprehensive Library Manag
 
 
 ## Team
-Anoud Mohamed 
-Nayera Shabaan 
-Manar Sameh
-Mahmoud Hosni
-Mohamed Ashraf 
+Anoud Mohamed,
+Nayera Shabaan,
+Manar Sameh,
+Mahmoud Hosni,
+Mohamed Ashraf, 
 Bassam Yasser
